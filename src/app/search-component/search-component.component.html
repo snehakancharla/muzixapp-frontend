@@ -1,0 +1,23 @@
+
+<div class="container-fluid">
+  <h2>Search Results .... </h2>
+  <div class="container-fluid d-flex flex-wrap my-2">
+    <div class="card col-sm-12 col-md-4 col-lg-3" style="width: 18rem;" *ngFor="let muzix of arrayOfMuzix">
+       
+       <img src='{{muzix.image[3]["#text"]}}' alt="">
+      <div class="card-body">
+        <h5 class="card-title">Music Name : {{muzix.name}}</h5>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Artist : {{muzix.artist}}</li>
+      </ul>
+      <div class="card-body">
+          <div class="btn-group">
+            <button class="btn btn btn-secondary mx-1" (click)="addToWishList(muzix)">Add to wishlist</button> 
+            <button class="btn btn btn-secondary mx-1" (click)="deleteTrack(muzix)">Delete</button> 
+               
+           </div>
+      </div>
+    </div>
+  </div>
+  </div>

@@ -1,0 +1,38 @@
+<hr>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Welcome to Muzix Application</h1>
+    <p class="lead">Listen to Muzix and Enjoy ....
+    </p>
+     </div>
+
+     <form>
+      <div class="form-row">
+        <div id="searchid" class="col-lg-3">
+          <input #text type="text" class="form-control" placeholder="Search muzix">
+        </div>
+          <button type="button" class="btn btn-secondary" (click)="click(text.value)">Search</button>
+       
+</div>
+
+<div class="container-fluid">
+<h2> Muzix</h2>
+<div class="container-fluid d-flex flex-wrap my-2">
+  <div class="card col-sm-12 col-md-4 col-lg-4" style="width: 16rem;" *ngFor="let muzix of arrayOfMuzix">
+     <img src='{{muzix.image[3]["#text"]}}' alt="">
+    <div class="card-body">
+      <h5 class="card-title">Muzix Name : {{muzix.name}}</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Artist : {{muzix.artist.name}}</li>
+    </ul>
+    <div class="card-body">
+        <div class="btn-group">
+             <button class="btn btn btn-secondary mx-1" (click)="addToWishList(muzix)">Add to wishlist</button> 
+             <button class="btn btn btn-secondary mx-1" (click)="deleteTrack(muzix)">Delete</button> 
+    
+          </div>
+    </div>
+  </div>
+</div>
+</div>
