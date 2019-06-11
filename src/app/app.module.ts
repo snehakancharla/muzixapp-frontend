@@ -13,7 +13,9 @@ import { HttpClientModule }    from '@angular/common/http';
 import {MuzixService} from './muzix.service'
 import { NavigationComponent } from './navigation/navigation.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { WishlistComponent } from './wishlist/wishlist.component';
+import { MyWishListComponent } from './my-wish-list/my-wish-list.component';
+import { DetailsComponent } from './details/details.component';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { WishlistComponent } from './wishlist/wishlist.component';
     HomePageComponent,
     NavigationComponent,
     DashboardComponent,
-    WishlistComponent
+    MyWishListComponent,
+    DetailsComponent
+
   ],
   imports: [
     BrowserModule,

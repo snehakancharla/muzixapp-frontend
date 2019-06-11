@@ -23,7 +23,6 @@ getMuzix(): void {
 
     const search = this.route.snapshot.paramMap.get('searchid');
      this.muzixService.getMuzix(search).subscribe(data => {
-  
      console.log("This too works..");
       this.arrayOfMuzix=data.results.trackmatches.track;
       console.log(this.arrayOfMuzix);

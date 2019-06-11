@@ -13,12 +13,17 @@ export class MuzixService {
     console.log(value);
    }
    getWishList() : any {
-    this.http.get("http://localhost:8087/api/v1/track").subscribe();
+  return  this.http.get("http://localhost:8087/api/v1/track");
     // console.log(value);
    }
    deleteTrack(value) : any {
-    this.http.delete("http://localhost:8087/api/v1/track/{id}",value).subscribe();
+     return this.http.delete(`http://localhost:8087/api/v1/track/${value}`).subscribe();
     console.log(value);
+   }
+   fullDetails(name,comment): any {
+     console.log("in service", name, comment)
+     return this.http.get(`http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=96e57f35a56ebc8ff8c03398d2fa94b2&artist=${comment}&album=${name}&format=json`);
+    
    }
 
   getTrendMuzix():any{

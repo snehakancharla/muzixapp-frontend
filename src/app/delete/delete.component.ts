@@ -9,16 +9,19 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class DeleteComponent implements OnInit {
 
-  constructor(private muzixService:MuzixService, private route: ActivatedRoute,private location: Location,
+  constructor(private muzixService:MuzixService, private route: ActivatedRoute,
     private router:Router) { }
   arrayOfMuzix:any=[];
  
   ngOnInit() {
+    this.delete();
  
   }
  
-  deleteTrack(muzix): void{
-    this.muzixService.deleteTrack(muzix);
+  delete(): any {
+    const myVar = this.route.snapshot.paramMap.get('myVal');
+    this.muzixService.deleteTrack(myVar);
+    this.router.navigateByUrl("favs");
  
  }
 }

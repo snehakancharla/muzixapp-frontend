@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MuzixService } from '../muzix.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -9,34 +9,40 @@ import { Router } from '@angular/router';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-  constructor(private muzixService:MuzixService ,private route :Router) { }
+  constructor(private muzixService:MuzixService, private route: ActivatedRoute,
+    private router:Router) { }
   arrayOfMuzix:any=[];
   ngOnInit() {
       this.muzixService.getTrendMuzix().subscribe(data=>
         {
+            console.log("sneha");
             console.log(data.tracks.track);
             this.arrayOfMuzix=data.tracks.track;
         });
 
   }
+
   addToWishList(value) {
-    // this.route.navigateByUrl("/addFav/"+value);
+     //this.route.navigateByUrl("/addFav/"+value);
     console.log("Fav Works");
  
     let myMusic = {
       id:value.listeners,
-      name: "Album:"+value.name,
+      name:value.name,
       comment: value.artist.name
     }
+    console.log(myMusic);
     this.muzixService.addToWishList(myMusic);
   }
 
-  deleteTrack(value){
-
+  details(muzix) : void{
+    console.log(muzix);
+    this.router.navigateByUrl("/dt/"+muzix.name+"/"+muzix.comment);
   }
+  
   click(value){
    
-    this.route.navigateByUrl("/result/"+value);
+    this.router.navigateByUrl("/result/"+value);
   
   }
  
