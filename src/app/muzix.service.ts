@@ -22,16 +22,16 @@ export class MuzixService {
    }
    fullDetails(name,comment): any {
      console.log("in service", name, comment)
-     return this.http.get(`http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=96e57f35a56ebc8ff8c03398d2fa94b2&artist=${comment}&album=${name}&format=json`);
+     return this.http.get(`http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=ecc55a848a37fd1724dcf80907395b33&artist=${comment}&album=${name}&format=json`);
     
    }
 
   getTrendMuzix():any{
-    return this.http.get("http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=96e57f35a56ebc8ff8c03398d2fa94b2&format=json");
+    return this.http.get("http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=ecc55a848a37fd1724dcf80907395b33&format=json");
   }
 
   getMuzix(value):any{
-    var url=`http://ws.audioscrobbler.com/2.0/?method=track.search&api_key=96e57f35a56ebc8ff8c03398d2fa94b2&track=${value}&format=json`;
+    var url=`http://ws.audioscrobbler.com/2.0/?method=track.search&api_key=ecc55a848a37fd1724dcf80907395b33&track=${value}&format=json`;
     return this.http.get(url);
   }
   
